@@ -1,0 +1,194 @@
+<template>
+  <div class="main-nav">
+    <div class="menu-icon">
+      <i class="ri-menu-line"></i>
+    </div>
+
+    <div class="logo">
+      <img src="@/assets/images/logo.png">
+    </div>
+    <div class="nav">
+      <a href="#">></a>
+      <a href="#">PEOPLE</a>
+      <a href="#">LOCALS</a>
+      <a href="#">INDUSTRY</a>
+      <a href="#">TRAVEL</a>
+      <a href="#">STORIES</a>
+    </div>
+    <div class="socal-icon">
+      <div class="icons">
+        <div class="icon-background"><i class="ri-twitter-line"></i></div>
+        <div class="icon-background"><i class="ri-weibo-line"></i></div>
+        <div class="icon-background"><i class="ri-instagram-line"></i></div>
+      </div>
+    </div>
+    <div class="ctl-icon" @click="handleOpen">
+      <i class="ri-close-line" v-if="store.isOpen"></i>
+      <i class="ri-dashboard-line" v-else></i>
+    </div>
+  </div>
+</template>
+<script setup>
+import { mainStore } from '../stores';
+
+const store = mainStore()
+
+function handleOpen () {
+  store.isOpen = !store.isOpen
+}
+</script>
+
+<style lang="less" scoped>
+  .main-nav {
+    position: relative;
+    height: 80px;
+    padding: 0 0 0 35px;
+
+    &::before,
+    &::after {
+      display: inline-block;
+      vertical-align: middle;
+      content: '';
+      height: 100%;
+    }
+    .menu-icon {
+      display: none;
+    }
+
+    .logo {
+      display: inline-block;
+      vertical-align: middle;
+      img {
+        max-height: 1.5rem;
+      }
+    }
+    .nav {
+      display: inline-block;
+      position: relative;
+      
+      a {
+        margin-right: 30px;
+        letter-spacing: 1px;
+        color: @color-text;
+        transition: all 0.3s ease-in-out;
+        font-weight: 600;
+        font-size: 1rem;
+        &:visited {
+          color: @color-text;
+        }
+        &:hover {
+          color: @color-text-hover;
+          &::before {
+            width: 100%;
+            left: 0;
+          }
+        }
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          bottom: -5px;
+          left: 50%;
+          width: 0;
+          height: 3px;
+          border-radius: 3px;
+          background-color: var(--text-color);
+          transition: 0.3s ease;
+        }
+      }
+    }
+    .socal-icon {
+      display: inline-block;
+      position: absolute;
+      right: 72px;
+      top: 25.5px;
+      .icons {
+        display: flex;
+        .icon-background {
+          width: 27px;
+          height: 27px;
+          background: @color-icon-background;
+          border-radius: 50%;
+          text-align: center;
+          margin-right: 10px;
+          cursor: pointer;
+          &:hover {
+            background: @color-icon-hover-background;
+            transition: all 0.3s ease-in-out;
+          }
+          i {
+            color: @color-icon;
+            font-size: @icon-size;
+          }
+        }
+      }
+    }
+    .ctl-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      right: 0;
+      top: 13px;
+
+      width: 54px;
+      height: 54px;
+      cursor: pointer;
+
+      border-left: @border-style;
+      &:hover {
+        color: @color-text-hover;
+        transition: all 0.3s ease-in-out;
+      }
+      i {
+        font-size: 27px;
+      }
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .main-nav {
+      .socal-icon {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: 950px) {
+    .main-nav {
+      padding: 0 10px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      .menu-icon {
+        display: block;
+        width: 54px;
+        height: 44px;
+        cursor: pointer;
+        &:hover {
+          color: @color-text-hover;
+          transition: all 0.3s ease-in-out;
+        }
+        i {
+          font-size: 27px;
+        }
+      }
+      .logo {
+        margin: auto;
+        img {
+          max-height: 44px;
+          max-width: 100%;
+        }
+      }
+      .nav {
+        display: none;
+      }
+      .ctl-icon {
+        border-left: none;
+        height: 44px;
+        top: 0;
+      }
+    }
+
+  }
+</style>
