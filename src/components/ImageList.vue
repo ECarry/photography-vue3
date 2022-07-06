@@ -35,6 +35,7 @@
     left: 0;
     background: #fff;
     height: 100%;
+    width: 100%;
     overflow-y: auto;
 
     border-top: none;
@@ -44,12 +45,14 @@
       font-size: 1.5rem;
       margin-bottom: 2rem;
       color:@color-text-hover;
+      letter-spacing: 0.1rem;
     }
 
     .images {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
       gap: 2rem;
+      transition: 0.3s all ease;
 
       .images--item {
         padding: 3rem 2rem;

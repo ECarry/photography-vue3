@@ -1,3 +1,9 @@
+/*  header 高度  */
+@header-height: 5rem;
+/*  内容高度  */
+@content-height: 100vh - @header-height;
+/*  header 左侧 padding  */
+@header-left-padding: 35px;
 /*  颜色  */
 @color-text: #8a8a8a;
 @color-text-hover: #333;
@@ -6,9 +12,19 @@
 @color-icon-background: #463e3e6b;
 @color-icon-hover-background: #d1d0d0;
 
+
 /*  字体大小  */
 @icon-size: 1rem;
 
-
 /*  边框样式  */
 @border-style: 1px solid #e8e8e8d8;
+
+/*  当宽度小于 950px 时  */
+@media (max-width: 950px) {
+  /*  header 高度  */
+  @header-height: 2.75rem;
+  /*  内容高度  */
+  @content-height: 100vh - @header-height;
+  /*  header 左侧 padding  */
+  @header-left-padding: 0;
+}

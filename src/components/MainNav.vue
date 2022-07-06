@@ -8,7 +8,7 @@
       <img src="@/assets/images/logo.png">
     </div>
     <div class="nav">
-      <a href="#">></a>
+      <a href="/">></a>
       <a href="#">PEOPLE</a>
       <a href="#">LOCALS</a>
       <a href="#">INDUSTRY</a>
@@ -41,7 +41,7 @@ function handleOpen () {
 <style lang="less" scoped>
   .main-nav {
     position: relative;
-    height: 80px;
+    height: @header-height;
     padding: 0 0 0 35px;
 
     &::before,
@@ -58,8 +58,10 @@ function handleOpen () {
     .logo {
       display: inline-block;
       vertical-align: middle;
+      cursor: pointer;
+      margin-right: 30px;
       img {
-        max-height: 1.5rem;
+        max-height: 2rem;
       }
     }
     .nav {
@@ -67,6 +69,7 @@ function handleOpen () {
       position: relative;
       
       a {
+        position: relative;
         margin-right: 30px;
         letter-spacing: 1px;
         color: @color-text;
@@ -90,9 +93,9 @@ function handleOpen () {
           bottom: -5px;
           left: 50%;
           width: 0;
-          height: 3px;
-          border-radius: 3px;
-          background-color: var(--text-color);
+          height: 2px;
+          border-radius: 2px;
+          background-color: @color-text-hover;
           transition: 0.3s ease;
         }
       }
@@ -160,6 +163,7 @@ function handleOpen () {
       height: 44px;
       display: flex;
       align-items: center;
+
       .menu-icon {
         display: block;
         width: 54px;
@@ -174,9 +178,9 @@ function handleOpen () {
         }
       }
       .logo {
-        margin: auto;
+        margin: 0 auto;
         img {
-          max-height: 44px;
+          max-height: 3rem;
           max-width: 100%;
         }
       }
@@ -184,6 +188,7 @@ function handleOpen () {
         display: none;
       }
       .ctl-icon {
+        display: block;
         border-left: none;
         height: 44px;
         top: 0;
