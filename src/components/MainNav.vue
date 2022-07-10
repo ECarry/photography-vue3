@@ -74,11 +74,7 @@ function handleOpen () {
         letter-spacing: 1px;
         color: @color-text;
         transition: all 0.3s ease-in-out;
-        font-weight: 600;
         font-size: 1rem;
-        &:visited {
-          color: @color-text;
-        }
         &:hover {
           color: @color-text-hover;
           &::before {
@@ -149,13 +145,6 @@ function handleOpen () {
     }
   }
 
-  @media (max-width: 1100px) {
-    .main-nav {
-      .socal-icon {
-        display: none;
-      }
-    }
-  }
 
   @media (max-width: 950px) {
     .main-nav {
@@ -169,6 +158,7 @@ function handleOpen () {
         width: 54px;
         height: 44px;
         cursor: pointer;
+        text-align: center;
         &:hover {
           color: @color-text-hover;
           transition: all 0.3s ease-in-out;
@@ -184,6 +174,12 @@ function handleOpen () {
           max-width: 100%;
         }
       }
+
+      .socal-icon {
+        display: none;
+      }
+
+
       .nav {
         display: none;
       }

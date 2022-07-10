@@ -7,6 +7,20 @@
   text-decoration: none;
 }
 
+a {
+  text-decoration: none;
+  color: @color-text;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+  &:visited{
+    color: @color-text;
+  }
+  &:hover {
+    color: @color-text-hover;
+  }
+}
+
 body {
   min-height: 100vh;
   line-height: 1.6;
