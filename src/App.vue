@@ -8,7 +8,7 @@ import { onMounted } from 'vue'
 const store = mainStore();
 
 onMounted(() => {
-  document.title = 'ECARRY丨PHOTOGRAPHY'
+  document.title = 'ECarry丨Photography'
 })
 </script>
 

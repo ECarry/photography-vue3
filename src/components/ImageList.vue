@@ -2,32 +2,28 @@
   <div class="images-wrapper">
     <h1>PEOPLE</h1>
     <div class="images">
-      <div class="images--item">
-        <img src="@/assets/images/demo.jpeg" alt="">
-      </div>
-      <div class="images--item">
-        <img src="@/assets/images/demo.jpeg" alt="">
-      </div>
-      <div class="images--item">
-        <img src="@/assets/images/demo.jpeg" alt="">
-      </div>
-      <div class="images--item">
-        <img src="@/assets/images/demo.jpeg" alt="">
-      </div>
-      <div class="images--item">
-        <img src="@/assets/images/demo.jpeg" alt="">
-      </div>
-      <div class="images--item">
-        <img src="@/assets/images/demo.jpeg" alt="">
-      </div>
-      <div class="images--item">
-        <img src="@/assets/images/demo.jpeg" alt="">
+      <div class="images__item" v-for="item in data" :key="item.id">
+        <img :src="item.url">
       </div>
     </div>
   </div>
 </template>
 <script setup>
+import { ref, onMounted } from 'vue';
+import { getPhotoList } from '@/api/photo';
 
+const data = ref([])
+
+function getData() {
+  getPhotoList()
+  .then(res => {
+    data.value = res
+  })
+}
+
+onMounted(() => {
+  getData()
+})
 </script>
 <style lang="less" scoped>
   .images-wrapper {
@@ -53,8 +49,9 @@
       grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
       gap: 2rem;
       transition: 0.3s all ease;
+      padding-bottom: 50px;
 
-      .images--item {
+      .images__item {
         padding: 3rem 2rem;
         background: @color-background;
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);

@@ -17,9 +17,9 @@
     </div>
     <div class="socal-icon">
       <div class="icons">
-        <div class="icon-background"><i class="ri-twitter-line"></i></div>
-        <div class="icon-background"><i class="ri-weibo-line"></i></div>
-        <div class="icon-background"><i class="ri-instagram-line"></i></div>
+        <div class="icon-background" v-for="item in socalInfo" :key="item.id">
+          <a :href="item.link" target="_blank"><i :class="`ri-${item.icon}-line`"></i></a>
+        </div>
       </div>
     </div>
     <div class="ctl-icon" @click="handleOpen">
@@ -32,6 +32,23 @@
 import { mainStore } from '../stores';
 
 const store = mainStore()
+const socalInfo = [
+  {
+    id: 1,
+    link: 'https://web.ecarry.me',
+    icon: 'twitter'
+  },
+  {
+    id: 2,
+    link: 'https://ops.ecarry.me',
+    icon: 'weibo'
+  },
+  {
+    id: 3,
+    link: 'https://instagram.com',
+    icon: 'instagram'
+  }
+]
 
 function handleOpen () {
   store.isOpen = !store.isOpen
@@ -171,7 +188,7 @@ function handleOpen () {
         margin: 0 auto;
         img {
           max-height: 3rem;
-          max-width: 100%;
+          max-width: 80%;
         }
       }
 
