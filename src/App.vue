@@ -24,6 +24,7 @@ onMounted(() => {
     <div class="img-wrapper">
       <img src="@/assets/images/demo.jpeg" />
     </div>
+    <!-- <RouterView/> -->
   </main>
 </template>
 

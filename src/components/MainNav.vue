@@ -8,16 +8,11 @@
       <img src="@/assets/images/logo.png">
     </div>
     <div class="nav">
-      <a href="/">></a>
-      <a href="#">PEOPLE</a>
-      <a href="#">LOCALS</a>
-      <a href="#">INDUSTRY</a>
-      <a href="#">TRAVEL</a>
-      <a href="#">STORIES</a>
+      <router-link v-for="item in NAV" :key="item.id" :to="{name: item.name}">{{ item.text }}</router-link>
     </div>
     <div class="socal-icon">
       <div class="icons">
-        <div class="icon-background" v-for="item in socalInfo" :key="item.id">
+        <div class="icon-background" v-for="item in SOCAL" :key="item.id">
           <a :href="item.link" target="_blank"><i :class="`ri-${item.icon}-line`"></i></a>
         </div>
       </div>
@@ -32,7 +27,7 @@
 import { mainStore } from '../stores';
 
 const store = mainStore()
-const socalInfo = [
+const SOCAL = [
   {
     id: 1,
     link: 'https://web.ecarry.me',
@@ -47,6 +42,34 @@ const socalInfo = [
     id: 3,
     link: 'https://instagram.com',
     icon: 'instagram'
+  }
+]
+
+const NAV = [
+  {
+    id: 1,
+    name: 'Home',
+    text: '>'
+  },
+  {
+    id: 2,
+    name: 'People',
+    text: 'PEOPLE'
+  },
+  {
+    id: 3,
+    name: 'Locals',
+    text: 'LOCALS'
+  },
+  {
+    id: 4,
+    name: 'Travel',
+    text: 'TRAVEL'
+  },
+  {
+    id: 5,
+    name: 'Stories',
+    text: 'STORIES'
   }
 ]
 
