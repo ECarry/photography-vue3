@@ -10,13 +10,14 @@
 </template>
 <script setup>
 import { ref, onMounted } from 'vue';
-import { getPhotoList } from '@/api/photo';
+import request from '@/utils/request'
 
 const data = ref([])
 
 function getData() {
-  getPhotoList()
+  request.get('/photo')
   .then(res => {
+    console.log(res)
     data.value = res
   })
 }
